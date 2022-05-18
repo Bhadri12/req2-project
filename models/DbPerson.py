@@ -1,20 +1,20 @@
 from config import db
 
 class DbPerson(db.Model):
-    __tablename__='employees'
+    __tablename__='employee'
     eno=db.Column(db.String(30),primary_key=True)
     name=db.Column(db.String(30),index=False,unique=False,nullable=False)
     city=db.Column(db.String(30),index=False,unique=False,nullable=False)
     designation=db.Column(db.String(30),index=False,unique=False,nullable=False)
-    age=db.Column(db.Integer,index=False,unique=False,nullable=False)
+    basic=db.Column(db.Integer,index=False,unique=False,nullable=False)
     
 
-    def __init__(self,eno,name,city,designation,age):
+    def __init__(self,eno,name,city,designation,basic):
         self.eno=eno
         self.name=name
         self.city=city
         self.designation=designation
-        self.age=age
+        self.basic=basic
     
     def serialize(self):
         return {
@@ -22,7 +22,7 @@ class DbPerson(db.Model):
             'name':self.name,
             'city':self.city,
             'designation':self.designation,
-            'age':self.age
+            'basic':self.basic
             }
     
     def __repr__(self):

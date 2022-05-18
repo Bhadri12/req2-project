@@ -3,7 +3,7 @@ from flask import request
 
 @app.route('/upload-file',methods=['POST'])
 def upload_image():
-    bucket='progbucket'
+    bucket='terraformb24241'
     content_type=request.mimetype
     obj=request.files['file']
     filename=obj.filename
@@ -17,5 +17,5 @@ def upload_image():
 
 @app.route("/download-file/<string:filename>",methods=["GET"])
 def getFileToDownload(filename):
-      client.download_file('progbucket',filename,"c:\\new-downloads\\"+filename)
+      client.download_file('terraformb24241',filename,"c:\\new-downloads\\"+filename)
       return {"message ": "check the download folder"}, 200
